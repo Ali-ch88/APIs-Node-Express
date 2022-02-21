@@ -6,6 +6,7 @@ app.use(express.json());
 
 
 //our own Middleware
+app.use(morgan('dev'))
 app.use((req, res, next) => {
     console.log('Hello Middleware');
     next();
@@ -134,6 +135,8 @@ app
 .patch(patchData)
 .delete(deleteData)
 
+
+// Start Server
 const port = 3000;
 app.listen(port, () => {
     console.log(`App running on port ${port}...`)
