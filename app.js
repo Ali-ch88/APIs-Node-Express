@@ -6,15 +6,15 @@ app.use(express.json());
 
 
 //our own Middleware
-// app.use(morgan('dev'))
-// app.use((req, res, next) => {
-//     console.log('Hello Middleware');
-//     next();
-// })
-//  app.use((req, res, next) => {
-//      req.requestTime = new Date().toISOString();
-//      next();
-//  })
+app.use(morgan('dev'))
+app.use((req, res, next) => {
+    console.log('Hello Middleware');
+    next();
+})
+ app.use((req, res, next) => {
+     req.requestTime = new Date().toISOString();
+     next();
+ })
 
 const tours = JSON.parse(
     fs.readFileSync(`${__dirname}/data/data.json`));
