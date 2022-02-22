@@ -40,16 +40,7 @@ const tours = JSON.parse(
         // res.send('Done')
         }
 
-        const getAllData = (req, res) => {
-            res.status('200').json({
-                status: 'success',
-                length: tours.length,
-                time: req.requestTime,
-                data: 
-                    tours
-                
-            })
-        }
+       
 
         const getSpecificData = (req, res) => {
             const id = req.params.id*1;
