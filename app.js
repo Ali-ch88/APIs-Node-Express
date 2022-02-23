@@ -125,16 +125,30 @@ const tours = JSON.parse(
 // Delete data 
 // app.delete('/api/v1/tours/:id', deleteData )
 
-app
-.route('/api/v1/tours')
+
+// Routes
+// app
+// .route('/api/v1/tours')
+// .get(getAllData)
+// .post(postData);
+// app
+// .route('/api/v1/tours/:id')
+// .get(getSpecificData)
+// .patch(patchData)
+// .delete(deleteData)
+
+// Mounting the Router
+const tourRouter = express.Router();
+tourRouter
+.route('/')
 .get(getAllData)
 .post(postData);
-app
-.route('/api/v1/tours/:id')
+tourRouter
+.route('/:id')
 .get(getSpecificData)
 .patch(patchData)
-.delete(deleteData)
-
+.delete(deleteData) 
+ app.use('/api/v1/tours', tourRouter)
 
 // Start Server
 const port = 3000;
